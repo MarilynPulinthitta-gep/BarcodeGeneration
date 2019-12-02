@@ -18,18 +18,18 @@ namespace BarcodeGenerationAPI.Controllers
             this.barcodeService = service;
         }
 
-
-        [HttpGet]
-        public string GetMultiValue()
-        {
-            return "123";
-        }
-
         [HttpPost]
         public List<BarcodeResponse> BarcodeGenerationByValue([FromBody] List<string> inputList)
         {
-            List<BarcodeResponse> barcodeResponseList = barcodeService.GenerateBarcodeList(inputList).Result;
-            return barcodeResponseList;
+            try
+            {
+                List<BarcodeResponse> barcodeResponseList = barcodeService.GenerateBarcodeList(inputList).Result;
+                return barcodeResponseList;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
 
         }
     }

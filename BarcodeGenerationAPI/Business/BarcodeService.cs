@@ -21,7 +21,6 @@ namespace BarcodeGenerationAPI.Business
                     responseList.Add(await GenerateBarcode(valueToBeBarcoded));
                 }
                 return responseList;
-            
         }
         private async Task<BarcodeResponse> GenerateBarcode(string valueToBeBarcoded)
         {
